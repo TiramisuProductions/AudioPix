@@ -26,7 +26,10 @@ public class Tap : MonoBehaviour
     {
         yield return new WaitForSeconds(0.3f);
         if (touch.tapCount == 1)
+        {
             Debug.Log("Single");
+            chooselevel();
+        }
         else if (touch.tapCount == 2)
         {
             //this coroutine has been called twice. We should stop the next one here otherwise we get two double tap
@@ -34,4 +37,19 @@ public class Tap : MonoBehaviour
             Debug.Log("Double");
         }
     }
+
+
+    void chooselevel()
+    {
+        switch(Levels.level)
+        {
+            case 1:
+                GameObject.FindGameObjectWithTag("level1").GetComponent<AudioSource>().Play();
+                break;
+            default:
+                break;
+
+        }
+    }
+
 }
