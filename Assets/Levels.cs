@@ -15,5 +15,10 @@ public class Levels : MonoBehaviour {
         {
             level = 1;
         }
-	}
+       else if (!GameObject.FindGameObjectWithTag("level1").GetComponent<AudioSource>().isPlaying && level == 1)
+        {
+            //level = 2;
+        }
+
+    }
 }
