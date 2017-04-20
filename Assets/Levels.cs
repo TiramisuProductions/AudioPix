@@ -8,12 +8,14 @@ public class Levels : MonoBehaviour {
     static public bool allowtoaction;
     static public bool allowtoswipe;
     static public bool allowtotap;
+    static public bool allowtoswipeandhold;
     // Use this for initialization
     void Start () {
         level = 0;
         allowtoswipe = false;
         allowtotap = true;
         allow = true;
+        allowtoswipeandhold = false;
     }
 	
 	// Update is called once per frame
@@ -21,17 +23,23 @@ public class Levels : MonoBehaviour {
 		if(!GameObject.FindGameObjectWithTag("level0").GetComponent<AudioSource>().isPlaying&&level == 0)
         {
             level = 1;
-            allowtoswipe = true;
+           
             allowtotap = true;
-            allow = false;
+            
             allowtoaction = true;
         }
        else if (!GameObject.FindGameObjectWithTag("level1").GetComponent<AudioSource>().isPlaying && level == 1&&allow)
         {
             level = 2;
             allowtoaction = true;
-            
-            
+            allowtoswipe = true;
+            allow = false;
+
+        }
+        else if(!GameObject.FindGameObjectWithTag("level2").GetComponent<AudioSource>().isPlaying && level ==2 &&allow)
+        {
+            level = 3;
+            allowtoswipeandhold = true;
         }
 
     }
@@ -52,6 +60,8 @@ public class Levels : MonoBehaviour {
                     GameObject.FindGameObjectWithTag("level2").GetComponent<AudioSource>().Play();
                     allow = true;
                     break;
+                case 3:
+            
 
                 default:
                     break;

@@ -7,6 +7,7 @@ TagManager:
   - level1
   - level0
   - level2
+  - swim
   layers:
   - Default
   - TransparentFX
