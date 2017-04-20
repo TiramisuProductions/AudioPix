@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Levels.cs" />
+    <Compile Include="Assets\Swipe.cs" />
     <Compile Include="Assets\Tap.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

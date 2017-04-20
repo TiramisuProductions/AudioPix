@@ -8,6 +8,13 @@ public class Tap : MonoBehaviour
     // Use this for initialization
     float touchDuration;
     Touch touch;
+   
+
+
+    void Start()
+    {
+       
+    }
     void Update()
     {
         if (Input.touchCount > 0)
@@ -28,28 +35,20 @@ public class Tap : MonoBehaviour
         if (touch.tapCount == 1)
         {
             Debug.Log("Single");
-            chooselevel();
+            if (Levels.allowtotap)
+            {
+                Levels.chooselevel();
+            }
         }
         else if (touch.tapCount == 2)
         {
             //this coroutine has been called twice. We should stop the next one here otherwise we get two double tap
             StopCoroutine("singleOrDouble");
+          //  Levels.chooselevel();
             Debug.Log("Double");
         }
     }
 
 
-    void chooselevel()
-    {
-        switch(Levels.level)
-        {
-            case 1:
-                GameObject.FindGameObjectWithTag("level1").GetComponent<AudioSource>().Play();
-                break;
-            default:
-                break;
-
-        }
-    }
-
+  
 }
