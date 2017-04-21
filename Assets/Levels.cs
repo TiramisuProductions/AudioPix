@@ -12,34 +12,41 @@ public class Levels : MonoBehaviour {
     // Use this for initialization
     void Start () {
         level = 0;
-        allowtoswipe = false;
-        allowtotap = true;
+        allowtoswipe = true;
+        allowtotap = false;
         allow = true;
         allowtoswipeandhold = false;
+        
     }
 	
 	// Update is called once per frame
 	void Update () {
+        Debug.Log(level);
+
 		if(!GameObject.FindGameObjectWithTag("level0").GetComponent<AudioSource>().isPlaying&&level == 0)
         {
             level = 1;
            
-            allowtotap = true;
-            
+            allowtoswipe = true;
+            allowtotap = false;
             allowtoaction = true;
+            allowtoswipeandhold = false;
         }
        else if (!GameObject.FindGameObjectWithTag("level1").GetComponent<AudioSource>().isPlaying && level == 1&&allow)
         {
             level = 2;
             allowtoaction = true;
-            allowtoswipe = true;
-            allow = false;
+            allowtotap = true;
+            allowtoswipe = false;
+            
 
         }
         else if(!GameObject.FindGameObjectWithTag("level2").GetComponent<AudioSource>().isPlaying && level ==2 &&allow)
         {
             level = 3;
-            allowtoswipeandhold = true;
+            allowtoswipe = true;
+            allowtotap = false;
+            allowtoaction = true;
         }
 
     }

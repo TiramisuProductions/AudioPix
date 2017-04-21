@@ -69,6 +69,7 @@ void Update()
                         {
                             if (swipeType.x > 0.0f)
                             {
+                                    Debug.Log("Swiped Up");
                                   
                                if(Levels.allowtoswipe)
                                     {
