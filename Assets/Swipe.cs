@@ -70,17 +70,14 @@ void Update()
                             if (swipeType.x > 0.0f)
                             {
                                     Debug.Log("Swiped Up");
-                                  
-                               if(Levels.allowtoswipe)
-                                    {
-                                        Levels.chooselevel();
-                                    }
+                              
                             }
                             else
                             {
 
 
-                                Debug.Log("Go Left");
+                                   
+                                    Debug.Log("Go Left");
                                
 
                             }
@@ -90,9 +87,13 @@ void Update()
                         {
                             if (swipeType.y > 0.0f)
                             {
-                                // MOVE LEFT
+                                    // MOVE LEFT
+                                    if (Levels.allowtoswipe)
+                                    {
+                                        Levels.chooselevel();
+                                    }
 
-                            }
+                                }
                             else
                             {
                                 // MOVE RIGHT

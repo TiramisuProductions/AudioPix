@@ -23,7 +23,7 @@ public class Levels : MonoBehaviour {
 	void Update () {
         Debug.Log(level);
 
-		if(!GameObject.FindGameObjectWithTag("level0").GetComponent<AudioSource>().isPlaying&&level == 0)
+		if(!GameObject.FindGameObjectWithTag("level0").GetComponent<AudioSource>().isPlaying&&level == 0&& allow)
         {
             level = 1;
            
@@ -31,6 +31,8 @@ public class Levels : MonoBehaviour {
             allowtotap = false;
             allowtoaction = true;
             allowtoswipeandhold = false;
+            allow = false;
+            
         }
        else if (!GameObject.FindGameObjectWithTag("level1").GetComponent<AudioSource>().isPlaying && level == 1&&allow)
         {
@@ -38,7 +40,10 @@ public class Levels : MonoBehaviour {
             allowtoaction = true;
             allowtotap = true;
             allowtoswipe = false;
+            allow = false;
             
+           
+
 
         }
         else if(!GameObject.FindGameObjectWithTag("level2").GetComponent<AudioSource>().isPlaying && level ==2 &&allow)
@@ -47,6 +52,7 @@ public class Levels : MonoBehaviour {
             allowtoswipe = true;
             allowtotap = false;
             allowtoaction = true;
+            
         }
 
     }
@@ -61,7 +67,7 @@ public class Levels : MonoBehaviour {
             {
                 case 1:
                     GameObject.FindGameObjectWithTag("level1").GetComponent<AudioSource>().Play();
-                    allow = true;
+                   allow = true;
                     break;
                 case 2:
                     GameObject.FindGameObjectWithTag("level2").GetComponent<AudioSource>().Play();
